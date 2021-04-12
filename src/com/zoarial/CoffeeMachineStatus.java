@@ -1,6 +1,6 @@
 package com.zoarial;
 
-public class CoffeeMachine {
+public class CoffeeMachineStatus {
     private String start = "Starting to make a coffee";
     private String grinding = "Grinding coffee beans";
     private String boiling = "Boiling water";
@@ -9,6 +9,8 @@ public class CoffeeMachine {
     private String pourMilk = "Pouring some milk into the cup";
     private String ready = "Coffee is ready";
 
+
+
     private static <T> void println(T var) {
         System.out.println(var);
     }
@@ -16,7 +18,7 @@ public class CoffeeMachine {
         System.out.println();
     }
 
-    public CoffeeMachine() {
+    public CoffeeMachineStatus() {
     }
 
     public void makeCoffee() {
