@@ -2,10 +2,6 @@ package com.zoarial;
 
 public class Ingredients {
 
-    private final byte milkForOneCup = 50;
-    private final byte coffeeBeansForOneCup = 15;
-    private final int waterForOneCup = 200;
-
     // What is in the machine
     private double water;
     private double milk;
@@ -18,17 +14,17 @@ public class Ingredients {
     }
 
 
-    public boolean Calculator(int cups) {
+    public boolean Calculator(CoffeeInterface type, int cups) {
         boolean doWeHaveEnough = true;
-        if (water <= cups * waterForOneCup) {
+        if (water <= cups * type.getWater()) {
             doWeHaveEnough = false;
             System.out.println("We don't have enough water.");
         }
-        if (coffeeBeans <= cups * coffeeBeansForOneCup) {
+        if (coffeeBeans <= cups * type.getCoffeeBeans()) {
             doWeHaveEnough = false;
             System.out.println("We don't have enough coffee beans.");
         }
-        if (milk <= cups * milkForOneCup) {
+        if (milk <= cups * type.getMilk()) {
             doWeHaveEnough = false;
             System.out.println("We don't have enough milk.");
         }
@@ -37,9 +33,9 @@ public class Ingredients {
             return false;
 
         }
-        int water = waterForOneCup * cups;
-        int milk = milkForOneCup * cups;
-        int coffeeBeans = coffeeBeansForOneCup * cups;
+        int water = type.getWater() * cups;
+        int milk = type.getMilk() * cups;
+        int coffeeBeans = type.getCoffeeBeans() * cups;
         System.out.printf("For %d cups of coffee you wil need: \n", cups);
         System.out.println(water + " ml of water");
         System.out.println(milk + " ml of milk");
